@@ -248,6 +248,24 @@ On branch master
 nothing to commit, working tree clean
 
 
+# SOCIAL CODING
+Fork from https://github.com/scm-ninja/starter-web
+$ git clone https://github.com/aratzpuerto/starter-web.git
+$ git checkout -b feature-readme
+Switched to a new branch 'feature-readme'
+
+$ npp README.md
+Add content
+
+$ git add README.md
+$ git commit -m "Adds README file"
+$ git push -u origin feature-readme
+
+
+# ISSUES
+## Close by commit
+$ git commit -m "message, close #1"
+
 # CONFIG
 
 git config --global user.name "*****"
