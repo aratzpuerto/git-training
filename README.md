@@ -1,6 +1,5 @@
+# LOG
 
-
-#LOG
 git log
 git show
 git reflog (all the actions taken)
@@ -9,21 +8,22 @@ git ls-files (tracking files)
 git remote show origin
 git show <branch name or tag>
 
-#ADD
+# ADD
+
 git add .
 git add filename
 git add -u (only add modifications)
 
-#COMMIT
+# COMMIT
 git commit -m "commit description"
 git commit (should open default editor)
 git commit -am "commit desctiption"  (add+commit all modifided files)
 
-#RESET
+# RESET
 git reset HEAD filename (unstage change of the file)
 git checkout -- filename (undo changes in the file)
 
-#RENAME FILES
+# RENAME FILES
 git mv oldname newname
 git rm demo.txt
 
@@ -38,7 +38,7 @@ git diff branch1 branch2
 git branch -a (check branches)
 git checkout -b branchname (create branch. Carries modifications to new branch)
 
--Delete branch
+## Delete branch
 git branch -d <branch-to-remove>
 git fetch -p (-p is the prune option)
 
@@ -51,43 +51,41 @@ git merge updates (merges updates branch to current branch)
 
 git pull --all (updates all tracking branches, not only the active)
 
---With conflict
+## With conflict
 cat filename (shows conflicts)
 git mergetool
 
 # REMOVE BRANCH
  git branch -d branchname
 
-
-#TAG
--- list
+# TAG
+## list
 git tag --list 
 git show tagname (shows info)
 
 
---Lightweight tag
+### Lightweight tag
   git tag tagname (Adds tag to current commit)
   $ git tag tagname branchname (Adds tag to last commit of the branch)
 
---Anotated tag 
+### Annotated tag 
   git tag -a tagname -m "tag info"
 
 $ git tag -a v0.1-alpha -m "Release 0.1 (Alpha)" 0fd86ac
 
---Remove
+### Remove 
   git tag -d tagname
 
-
-
+### Show info
 $ git show v0.1-alpha
 tag v0.1-alpha
-Tagger: Aratz Puerto <aratzpuerto@gmail.com>
+Tagger: ******** <********@gmail.com>
 Date:   Thu Oct 10 12:16:41 2024 +0200
 
 Release 0.1 (Alpha)
 
 commit 0fd86ac98358b5081f229367b1610bb000daf170 (tag: v0.1-alpha)
-Author: Aratz Puerto <aratzpuerto@gmail.com>
+Author: ******** <*********@gmail.com>
 Date:   Wed Oct 2 13:33:43 2024 +0200
 
     Updating README
@@ -107,10 +105,11 @@ index 09257f3..5d6d4cb 100644
 \ No newline at end of file
 
 
--- PUSH BY TAG
+## PUSH BY TAG
 git push origin tag-name (pushes tag to remote)
 git push --tags (pushes all tags to remote)
-#STASHING
+
+# STASHING
 $ git stash
 Saved working directory and index state WIP on master: 234f1f5 updating ignore to exclude merge files
 
@@ -119,20 +118,18 @@ stash@{0}: WIP on master: 234f1f5 updating ignore to exclude merge files
 
 git stash pop (applies and drops stash)
 
-
 git reset commitHash --soft (Changes HEAD position)
 git reset commitHash --mixed (default, unstages some changes)
 git reset commitHash --hard (Removes pending changes)
 
-#UPDATE repo link
+# UPDATE repo link
 git remote set-url origin <new clone link in the updated repo url in github>
 git remote show origin
 
 git push -u origin target
 
+# REBASE
 
-REBASE
-=====
 Rewinds the current commits that are on your branch to a point to where the branch you're merging in originally diverged.
 Then playing back the commits that happened on the branch that you're wanting to bring in. 
 And then, after that, playing on top of that any commits that have happened on the branch that you're currently on.
@@ -156,8 +153,8 @@ Applying: Updating ...
 
 $ git push
 
-GRAPHS
-=====
+# GRAPHS
+
 $ git log --oneline --graph
 * 2822e56 (HEAD -> master, origin/master) Updating readme again
 * 3e4e243 updating license file
@@ -181,23 +178,21 @@ $ git log --oneline --graph
 Graphs --> Network
 
 
-SSH KEY
-=======
-cd
+# SSH KEY
 
+$ cd
 $ ls .ssh
 ls: cannot access '.ssh': No such file or directory
 $ mkdir .ssh
 $ cd .ssh
 
-$ ssh-keygen -t rsa -C "aratzpuerto@gmail.com"
+$ ssh-keygen -t rsa -C "*****@gmail.com"
 Generating public/private rsa key pair.
 
 __Open id_rsa.pub, copy contents and add it to github accounts__
 
 
-Check
------
+## Check
 
 $ ssh -T git@github.com
 The authenticity of host 'github.com (140.82.121.4)' can't be established.
@@ -205,27 +200,20 @@ ED25519 key fingerprint is SHA256:******************************************
 This key is not known by any other names.
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
-Enter passphrase for key '/c/Users/aratz/.ssh/id_rsa':
-Hi aratzpuerto! You've successfully authenticated, but GitHub does not provide shell access.
+Enter passphrase for key '**********/.ssh/id_rsa':
+Hi ********! You've successfully authenticated, but GitHub does not provide shell access.
 
+# Basics
 
-2. Basics
-=========
-
-2.1 Initialization
-------------------
+## Initialization
 git init <repo folder name>
 
-2.2 States
-----------
+## States
 working directory
 Staging Area
 Repository (.git folder)
 
-Remote
-
-2.3 First commit
-----------------
+# First commit
 $ git status
 On branch master
 No commits yet
@@ -260,39 +248,12 @@ On branch master
 nothing to commit, working tree clean
 
 
-#CONFIG
+# CONFIG
 
-git config --global user.name "Aratz Puerto"
-git config --global user.email "aratzpuerto@gmail.com"
+git config --global user.name "*****"
+git config --global user.email "*********@gmail.com"
 
-1. Quick Installation on Windows Notes
-======================================
-
-Introduction
-This document provides a quick listing of the tools needed and basic install instructions for each -- which is used throughout this course. Before you get started installing all the tools and software for this course, there are a few basic requirements. After that, I provide the general instructions for each tool used. Since this page is designed to aide the "get to the point" crowd, I keep my instructions as brief as possible.
-
-In order to support the most recent version of Windows available, these instructions were tested using Windows 10. However, with some modification, these instructions will generally work for older versions of Windows.
-
-Getting Started and Common Tools
-Admin Rights
-
-You need to have Administrator rights to your system. Most modern versions of Windows come with several "flavors" of user accounts -- only Administrators can install software.
-
-The Right Bits
-
-Windows comes in two flavors: 32-bit and 64-bit. What's even more confusing -- you might have a 32-bit version on hardware able to run 64-bit software.
-
-The fastest way to find out if you have 32 or 64-bits installed:
-
-Right-click on the Start Menu, this will display a pop-up menu
-Click on the System item
-Once the System window appears, look for the System Type entry under the System section. This should tell you if you have 32 or 64-bit version of Windows.
-Make a note of this -- you'll want to install the 32-bit or 64-bit version of any software in order to best match your operating system and to have the best performance possible, when given the choice.
-
-Google Chrome
-Optional.
-
-I use Google Chrome for most of my courses. A few years ago, I would have strongly recommended or border-lined required the use of Chrome. However, most modern versions of all common browsers are adequate -- although the software engineer in me still prefers Chrome. For those wanting to follow along as closely as possible, install and use Chrome during this course. However, this is an optional step now, but I include it for completeness.
+# Quick Installation on Windows Notes
 
 Install for Windows
 
@@ -370,10 +331,7 @@ git config --global mergetool.p4merge.path "C:/Program Files/Perforce/p4merge.ex
 git config --global mergetool.prompt false
 The above commands should work, but some systems may require converting the paths to Unix friendly versions where C: is replaced with /c/.
 
-
-
-
-##NOTEPAD++
+## NOTEPAD++
 /mnt/c/Program\ Files/Notepad++/notepad++.exe ~/.bash_profile
   Gehitu: alias npp='/c/Program Files/Notepad++/notepad++.exe -multiInst -nosession'
 
@@ -382,7 +340,7 @@ git config --global -e
 
 /c/Program\ Files/Perforce/p4merge.exe
 
-##P4MERGE
+## P4MERGE
 git config --global diff.tool p4merge
 git config --global difftool.p4merge.path "/c/Program Files/Perforce/p4merge.exe"
 git config --global difftool.prompt false
